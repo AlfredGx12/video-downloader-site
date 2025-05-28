@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request, send_file
 import yt_dlp
 import os
@@ -23,8 +22,10 @@ def index():
             return send_file(filename, as_attachment=True)
 
         except Exception as e:
-            return f"Error: {str(e)}"
+            return f"<h3>Error: {str(e)}</h3>"
+
     return render_template('index.html')
+
 
 if __name__ == '__main__':
     os.makedirs('downloads', exist_ok=True)
